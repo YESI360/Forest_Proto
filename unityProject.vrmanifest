@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.meshanimator02.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\Unity 2019.2.10f\\Crowd+Forest_Proto\\Crowd-Forest\\Crowd+Forest_Proto\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Crowd+Forest_Proto [Testing]"
+        }
+      }
+    }
+  ]
+}
