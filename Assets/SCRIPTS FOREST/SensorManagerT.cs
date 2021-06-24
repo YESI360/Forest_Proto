@@ -61,7 +61,6 @@ public class SensorManagerT : MonoBehaviour
 
                 if ((String.Compare(c1, c2)) == 0)
                 {
-                    //print("ok");
                     datoL2 = (Convert.ToInt32(vec1[1]));//CHEST
                     Debug.Log("chest:" + datoL2);
                 }
@@ -148,5 +147,16 @@ public class SensorManagerT : MonoBehaviour
 
     }
 
+    private void OnGUI()
+    {
+        //GUIStyle style = new GUIStyle();
+        //style.richText = true;
+
+        GUI.contentColor = Color.black;
+        GUI.Label(new Rect(5, 5, 80, 200), "CHEST " + datoL2);
+        GUI.Label(new Rect(5, 20, 80, 200), "BELLY " + datoL);
+
+        //GUILayout.Label("<size=30> <color=yellow>CHEST</color> + datoL2</size>", style);
+    }
 
 }

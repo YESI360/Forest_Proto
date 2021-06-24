@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/BIG.unity
-    guid: a958ad604b4b0b34286d33db9f1fd287
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/ForestProto.unity
     guid: 7e55aaf01a8011e4cadcae0f41853b79
