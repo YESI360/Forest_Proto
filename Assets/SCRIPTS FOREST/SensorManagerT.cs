@@ -7,7 +7,7 @@ using System;
 
 public class SensorManagerT : MonoBehaviour
 {
-    SerialPort serialPort = new SerialPort("COM6", 115200);
+    SerialPort serialPort = new SerialPort("COM14", 115200);//("COM5", 9600);
 
     public PulseSphere PulseSphere;
     public BellyCube BellyCube;
@@ -39,7 +39,7 @@ public class SensorManagerT : MonoBehaviour
     string[] vec1;
     void Start()
     {
-        serialPort.ReadTimeout = 100;///////50;
+        serialPort.ReadTimeout = 1;
         serialPort.Open();
     }
 
@@ -52,6 +52,9 @@ public class SensorManagerT : MonoBehaviour
                 string value = serialPort.ReadLine(); //leemos una linea del puerto serie y la almacenamos en un string
                 //print(value);// printeamos la linea leida para verificar que leemos el dato que manda nuestro Arduino               
                 vec1 = value.Split(',');
+                //datoL = (Convert.ToInt32(vec1[1]));
+                //datoL2 = (Convert.ToInt32(vec1[0]));
+
                 //Debug.Log("dato : " + vec1[1]);
                 //Debug.Log("value : " + vec1[0]);
 

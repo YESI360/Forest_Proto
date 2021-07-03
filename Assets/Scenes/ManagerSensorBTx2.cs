@@ -7,7 +7,7 @@ using System;
 
 public class ManagerSensorBTx2 : MonoBehaviour
 {
-    SerialPort serialPort = new SerialPort("COM5", 9600);
+    SerialPort serialPort = new SerialPort("COM14", 115200);//("COM5", 9600);
     private int datoP = 0;
     private int datoL = 0;
     private int datoL2 = 0;
@@ -15,7 +15,7 @@ public class ManagerSensorBTx2 : MonoBehaviour
 
     void Start()
     {
-        serialPort.ReadTimeout = 100;
+        serialPort.ReadTimeout = 1;
         serialPort.Open();
     }
 
@@ -29,7 +29,7 @@ public class ManagerSensorBTx2 : MonoBehaviour
                 string value = serialPort.ReadLine(); //leemos una linea del puerto serie y la almacenamos en un string
                 print(value);// printeamos la linea leida para verificar que leemos el dato que manda nuestro Arduino
                 string[] vec3 = value.Split(','); //Separamos el String leido valiendonos de las comas y almacenamos los valores en un array.
-                datoP = (Convert.ToInt32(vec3[2]));//chest ultima pos
+               // datoP = (Convert.ToInt32(vec3[2]));//chest ultima pos
                 datoL = (Convert.ToInt32(vec3[1]));
                 datoL2 = (Convert.ToInt32(vec3[0]));
 
