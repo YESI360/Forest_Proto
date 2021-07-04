@@ -7,7 +7,7 @@ using System;
 
 public class SensorManagerT : MonoBehaviour
 {
-    SerialPort serialPort = new SerialPort("COM14", 115200);//("COM5", 9600);
+    SerialPort serialPort = new SerialPort("COM14", 115200);
 
     public PulseSphere PulseSphere;
     public BellyCube BellyCube;
@@ -24,8 +24,8 @@ public class SensorManagerT : MonoBehaviour
     public const int PULSE_EXHALE = 1;
 
     private int datoP = 0;
-    private int datoL = 0;
-    private int datoL2 = 0;
+    public int datoL = 0;
+    public int datoL2 = 0;
     private int datoPant = 0;
     private int stepsL = 0;
     private int stepsL2 = 0;
@@ -37,6 +37,8 @@ public class SensorManagerT : MonoBehaviour
     public event Action<int> OnPulseValueChanged;
 
     string[] vec1;
+
+    //public Text txt;
     void Start()
     {
         serialPort.ReadTimeout = 1;
@@ -73,6 +75,8 @@ public class SensorManagerT : MonoBehaviour
                     Debug.Log("belly:" + datoL);
 
                 }
+
+                //txt.text = "belly: " + datoL;
 
                 //SENSOR PULSE -------------------cambio estado-------------------------------------------
                 if (datoP == 2 && datoP != datoPant)// cuando recibe 2 y cuando el dato  SEA DIFERENTE DE SU ANTERIOR 1
@@ -150,16 +154,16 @@ public class SensorManagerT : MonoBehaviour
 
     }
 
-    private void OnGUI()
-    {
-        //GUIStyle style = new GUIStyle();
-        //style.richText = true;
+    //private void OnGUI()
+    //{
+    //    //GUIStyle style = new GUIStyle();
+    //    //style.richText = true;
 
-        GUI.contentColor = Color.black;
-        GUI.Label(new Rect(5, 5, 80, 200), "CHEST " + datoL2);
-        GUI.Label(new Rect(5, 20, 80, 200), "BELLY " + datoL);
+    //    GUI.contentColor = Color.black;
+    //    GUI.Label(new Rect(5, 5, 80, 200), "CHEST " + datoL2);
+    //    GUI.Label(new Rect(5, 20, 80, 200), "BELLY " + datoL);
 
-        //GUILayout.Label("<size=30> <color=yellow>CHEST</color> + datoL2</size>", style);
-    }
+    //    //GUILayout.Label("<size=30> <color=yellow>CHEST</color> + datoL2</size>", style);
+    //}
 
 }

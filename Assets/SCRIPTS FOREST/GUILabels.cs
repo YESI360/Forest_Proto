@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GUILabels : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public SensorManagerT datos;
     void Start()
     {
         
@@ -18,10 +18,18 @@ public class GUILabels : MonoBehaviour
 
     private void OnGUI()
     {
+        //GUIStyle style = new GUIStyle();
+        //style.richText = true;
 
-        GUIStyle style = new GUIStyle();
-        style.richText = true;
+        GUI.contentColor = Color.black;
+        GUI.Label(new Rect(5, 5, 80, 200), "CHEST " + datos.datoL2);
+        GUI.Label(new Rect(5, 20, 80, 200), "BELLY " + datos.datoL);
 
-        GUILayout.Label("<size=30>hola <color=yellow>HOLA</color> chau</size>", style);
+        //GUILayout.Label("<size=30> <color=yellow>CHEST</color> + datoL2</size>", style);
+
+        //GUIStyle style = new GUIStyle();
+        //style.richText = true;
+
+        //GUILayout.Label("<size=30>hola <color=yellow>HOLA</color> chau</size>", style);
     }
 }
