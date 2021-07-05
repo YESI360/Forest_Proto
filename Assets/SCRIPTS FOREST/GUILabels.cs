@@ -10,7 +10,6 @@ public class GUILabels : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

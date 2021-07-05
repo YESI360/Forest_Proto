@@ -40,9 +40,9 @@ public class SensorManagerBTx3 : MonoBehaviour
                 //print(value);// printeamos la linea leida para verificar que leemos el dato que manda nuestro Arduino
                 string[] vec3 = value.Split(','); //Separamos el String leido valiendonos de las comas y almacenamos los valores en un array.
 
-                datoP = (Convert.ToInt32(vec3[2]));//chest
-                datoL = (Convert.ToInt32(vec3[1]));//belly
-                datoL2 = (Convert.ToInt32(vec3[0]));//pulse
+                datoP = (Convert.ToInt32(vec3[1]));//chest
+                datoL = (Convert.ToInt32(vec3[0]));//belly
+                //datoL2 = (Convert.ToInt32(vec3[0]));//pulse
 
                 txt1.text = "chest: " + datoP;
 
@@ -50,45 +50,43 @@ public class SensorManagerBTx3 : MonoBehaviour
             }
 
 
+///////////////////////CHEST 
+            if (datoP >= 3)
+            {
+            Debug.Log("+CHEST+");
+            }
 
+            if (datoP < 20)
+            {
+                //Debug.Log("-CHEST-");
+            }
 
-            ////////////////CHEST 
-            if (datoP >= 20)
-                {
-                    Debug.Log("+CHEST+");
-                }
+            ////////////////////////BELLY 
+            if (datoL >=3)
+            {
 
-                if (datoP < 20)
-                {
-                    //Debug.Log("-CHEST-");
-                }
+            //sphere.transform.localScale = new Vector3(datoL, datoL, datoL);
+            txt2.text = "belly: " + datoL;
+            Debug.Log("BELLY:" + datoL);
 
-                //////////////BELLY 
-                if (datoL >= 3)
-                {
+            }
 
-                sphere.transform.localScale = new Vector3(datoL, datoL, datoL);
-                txt2.text = "belly: " + datoL;
-                Debug.Log("BELLY:" + datoL);
+            if (datoL < 3)
+            {
+                //Debug.Log("-BELLY-");
+            }
 
-                }
-
-                if (datoL < 3)
-                {
-                    //Debug.Log("-BELLY-");
-                }
-
-                //SENSOR PULSE -------------------cambio estado-------------------------------------------
-                if (datoL2 == 2 && datoL2 != datoL2ant)// cuando recibe 2 y cuando el dato  SEA DIFERENTE DE SU ANTERIOR 1
-                {
-                    //PulseSphere.agrandarS();
-                    print(datoL2ant);
-                }
-                else
-                {
-                    //PulseSphere.achicarS();
-                }
-                datoL2ant = datoL2;//actualizo estados
+            //////////////SENSOR PULSE -------------------cambio estado-------------------------------------------
+            //if (datoL2 == 2 && datoL2 != datoL2ant)// cuando recibe 2 y cuando el dato  SEA DIFERENTE DE SU ANTERIOR 1
+            //{
+            // //PulseSphere.agrandarS();
+            // print(datoL2ant);
+            //}
+            //else
+            //{
+            ////PulseSphere.achicarS();
+            //}
+            //datoL2ant = datoL2;//actualizo estados
         }
 
     }
